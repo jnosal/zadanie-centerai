@@ -27,3 +27,6 @@ CACHES = {
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
+
+SHORTENING_SIGNATURE_LENGTH = 8
+SHORTENING_REDIRECT_PERMANENT = False

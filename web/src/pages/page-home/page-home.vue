@@ -12,7 +12,10 @@
       >
         <template v-slot:label> Link to shortcut </template>
       </z-input>
-      <z-button class="page-home__button" :disabled="!isValid"
+      <z-button
+        class="page-home__button"
+        :disabled="!isValid"
+        @click="shortenLink"
         >Shorten it</z-button
       >
       <shortened-link

@@ -12,7 +12,7 @@ export default {
   },
   data() {
     return {
-      result: "ASD",
+      result: null,
       fields: {
         link: null,
       },
@@ -21,6 +21,11 @@ export default {
   computed: {
     isValid() {
       return !!this.fields.link;
+    },
+  },
+  methods: {
+    shortenLink() {
+      this.result = "http:/www.google.com";
     },
   },
 };
