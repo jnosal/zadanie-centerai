@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
       <router-view v-slot="{ Component }">
         <transition name="z-transition-fade" mode="out-in">
           <component :is="Component" />
@@ -9,3 +9,4 @@
 </template>
 
 <script src="./app.js"></script>
+<style src="./app.scss" lang="scss"></style>

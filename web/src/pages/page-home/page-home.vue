@@ -1,8 +1,14 @@
 <template>
   <div class="page-home">
-    home
+    <div class="page-home__container">
+      <div class="page-home__logo">
+        <img class="page-home__logo-image" src="@/assets/images/logo.svg" />
+      </div>
+      <h3 class="page-home__title">Short link</h3>
+    </div>
   </div>
 </template>
 
 <script src="./page-home.js">
 </script>
+<style src="./page-home.scss" lang="scss"></style>

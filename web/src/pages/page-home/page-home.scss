@@ -1,0 +1,31 @@
+.page-home {
+  &__container {
+    max-width: 480px;
+    margin: 180px auto 0;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 16px 24px 0 #E9EDF2E5;
+    padding: 70px 40px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 240px;
+    height: 31px;
+    margin-bottom: 60px;
+
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__title {
+    color: #363C56;
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0;
+  }
+}
