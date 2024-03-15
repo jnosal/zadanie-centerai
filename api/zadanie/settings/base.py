@@ -83,6 +83,8 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
+SHORTENING_SIGNATURE_LENGTH = 8
+SHORTENING_REDIRECT_PERMANENT = False
 
 STORAGES = {
     "default": {

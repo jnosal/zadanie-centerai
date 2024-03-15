@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 class ShortenLinkApiView(GenericAPIView):
     serializer_class = serializers.ShortenRequestSerializer
 
-    def save_url_and_get_sinature(self, url):
+    def save_url_and_get_signature(self, url):
         try:
             signature = helpers.get_random_identifier()
             models.ShortenedUrl.objects.create(url=url, signature=signature)
@@ -27,7 +27,7 @@ class ShortenLinkApiView(GenericAPIView):
             return signature
         except IntegrityError:
             logger.error("Signature already exists in database, generating another one")
-            return self.save_url_and_get_sinature(url)
+            return self.save_url_and_get_signature(url)
 
     def get_signature_link(self, signature):
         return reverse(
@@ -41,10 +41,10 @@ class ShortenLinkApiView(GenericAPIView):
             url = serializer.data["url"]
             item = models.ShortenedUrl.objects.filter(url=url).first()
             signature = (
-                item.signature if item else self.save_url_and_get_sinature(url=url)
+                item.signature if item else self.save_url_and_get_signature(url=url)
             )
 
-            return Response({"signature": self.get_signature_link(signature)})
+            return Response({"result": self.get_signature_link(signature)})
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
