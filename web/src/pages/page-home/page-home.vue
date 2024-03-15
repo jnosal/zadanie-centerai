@@ -7,7 +7,7 @@
       <h3 class="page-home__title">Short link</h3>
       <z-input
         v-model="fields.link"
-        placeholder="Type your link..."
+        placeholder="e.g https://www.google.com"
         class="page-home__input"
       >
         <template v-slot:label> Link to shortcut </template>
