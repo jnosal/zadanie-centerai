@@ -7,7 +7,7 @@
         </div>
         {{ url }}
       </div>
-      <div class="shortened-link__result-copy">
+      <div class="shortened-link__result-copy" @click="copyToClipboard">
         <img
           class="shortened-link__result-image"
           src="@/assets/images/file-copy.svg"

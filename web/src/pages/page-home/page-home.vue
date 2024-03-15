@@ -27,7 +27,7 @@
     <div class="page-home__last-links" v-if="historyLinks.length > 0">
       <h4 class="page-home__last-links-title">Last links</h4>
       <div class="page-home__last-links-list">
-        <shortened-links-list></shortened-links-list>
+        <shortened-links-list :items="historyLinks"></shortened-links-list>
       </div>
     </div>
   </div>

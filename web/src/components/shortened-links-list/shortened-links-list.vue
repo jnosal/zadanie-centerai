@@ -1,5 +1,13 @@
 <template>
-  <div class="last-shortened-links-list">LIST</div>
+  <div class="shortened-links-list">
+    <shortened-link
+      class="shortened-links-list__link"
+      v-for="item in items"
+      :url="item.url"
+      :source="item.source"
+    >
+    </shortened-link>
+  </div>
 </template>
 
 <script src="./shortened-links-list.js"></script>

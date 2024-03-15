@@ -1,4 +1,4 @@
-import { mapState } from "pinia";
+import { mapActions, mapState } from "pinia";
 import shortenedLink from "@/components/shortened-link/shortened-link.vue";
 import shortenedLinksList from "@/components/shortened-links-list/shortened-links-list.vue";
 import zButton from "@/components/generic/z-button/z-button.vue";
@@ -29,12 +29,17 @@ export default {
     },
   },
   methods: {
+    ...mapActions(useShortenerStore, ["updateHistory"]),
     async shortenLink() {
       const payload = {
         url: this.fields.link,
       };
       const data = await api.shortener.postShortenUrl(payload);
       this.result = data.result;
+      this.updateHistory({
+        source: this.fields.link,
+        url: this.result,
+      });
     },
   },
 };

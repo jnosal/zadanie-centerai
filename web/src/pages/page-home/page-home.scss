@@ -1,6 +1,9 @@
 @import "@/assets/settings";
 
 .page-home {
+  @media (max-width: $breakpoint-small) {
+    padding: 8px;
+  }
   &__container {
     box-sizing: border-box;
     max-width: 480px;

@@ -9,4 +9,13 @@ export default {
       required: true,
     },
   },
+  methods: {
+    async copyToClipboard() {
+      try {
+        await navigator.clipboard.writeText(this.url);
+      } catch (err) {
+        console.error(err);
+      }
+    },
+  },
 };
