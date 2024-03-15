@@ -22,3 +22,8 @@ docker-compose up api
 # run tests
 docker-compose run test
 ```
+
+## Demo
+``` bash
+Run backend and web and visit localhost:5173
+```
