@@ -1,0 +1,27 @@
+@import "@/assets/settings";
+
+.z-button {
+  @include clickable-item;
+
+  &--primary {
+    color: white;
+    background: #4A24AC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    border: 1px solid #4A24AC;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: #4A24AC;
+      background: white;
+    }
+  }
+
+  &--medium {
+    height: 46px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
