@@ -6,7 +6,7 @@
 
     .z-input--primary & {
       background: white;
-      border-bottom: 1px solid #4a24ac;
+      border-bottom: 1px solid $color-primary;
     }
     .z-input--medium & {
       padding: 8px 0;
@@ -18,10 +18,10 @@
     outline: none;
     flex-grow: 1;
     width: 100%;
-    color: #363c56;
+    color: $color-secondary;
 
     &::placeholder {
-      color: #aaa;
+      color: $color-grey-dark;
       font-size: 12px;
       font-weight: 500;
     }
@@ -31,7 +31,7 @@
     .z-input--primary & {
       font-size: 12px;
       font-weight: 400;
-      color: #4a24ac;
+      color: $color-primary;
     }
   }
 }

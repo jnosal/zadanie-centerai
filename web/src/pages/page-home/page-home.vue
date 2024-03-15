@@ -15,6 +15,17 @@
       <z-button class="page-home__button" :disabled="!isValid"
         >Shorten it</z-button
       >
+      <shortened-link
+        :url="result"
+        v-if="result"
+        class="page-home__result"
+      ></shortened-link>
+    </div>
+    <div class="page-home__last-links">
+      <h4 class="page-home__last-links-title">Last links</h4>
+      <div class="page-home__last-links-list">
+        <shortened-links-list></shortened-links-list>
+      </div>
     </div>
   </div>
 </template>

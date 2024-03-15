@@ -1,28 +1,56 @@
+@import "@/assets/settings";
+
 .page-home {
   &__container {
+    box-sizing: border-box;
     max-width: 480px;
     margin: 180px auto 0;
     background: white;
     border-radius: 20px;
     box-shadow: 0 16px 24px 0 #e9edf2e5;
-    padding: 70px 40px;
+    padding: 40px;
     display: flex;
     flex-flow: column;
-    align-items: center;
-
-    & > * {
-      width: 100%;
-    }
+    align-items: stretch;
 
     @media (max-width: 475px) {
+      margin: 120px auto 0;
       padding: 40px 24px;
     }
+  }
+
+  &__last-links {
+    box-sizing: border-box;
+    max-width: 480px;
+    margin: 24px auto;
+
+    &-title {
+      color: $color-secondary;
+
+      margin: 0;
+
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      padding-left: 24px;
+    }
+
+    &-list {
+      margin-top: 8px;
+      border: 2px solid $color-grey-dark-2;
+      border-radius: 40px;
+      padding: 16px;
+    }
+  }
+
+  &__result {
+    margin-top: 24px;
   }
 
   &__logo {
     width: 240px;
     height: 31px;
-    margin-bottom: 60px;
+    margin: 0 auto 60px;
 
     &-image {
       width: 100%;
@@ -31,7 +59,7 @@
   }
 
   &__title {
-    color: #363c56;
+    color: $color-secondary;
     font-size: 26px;
     font-weight: 600;
     margin: 0;
