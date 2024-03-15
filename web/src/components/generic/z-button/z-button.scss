@@ -5,16 +5,16 @@
 
   &--primary {
     color: white;
-    background: #4A24AC;
+    background: #4a24ac;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 32px;
-    border: 1px solid #4A24AC;
+    border: 1px solid #4a24ac;
     transition: all 0.3s ease-in-out;
 
-    &:hover {
-      color: #4A24AC;
+    &:not(:disabled):hover {
+      color: #4a24ac;
       background: white;
     }
   }
@@ -23,5 +23,10 @@
     height: 46px;
     font-size: 14px;
     font-weight: 500;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }

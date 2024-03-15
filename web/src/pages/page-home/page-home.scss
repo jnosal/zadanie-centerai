@@ -4,11 +4,19 @@
     margin: 180px auto 0;
     background: white;
     border-radius: 20px;
-    box-shadow: 0 16px 24px 0 #E9EDF2E5;
+    box-shadow: 0 16px 24px 0 #e9edf2e5;
     padding: 70px 40px;
     display: flex;
     flex-flow: column;
     align-items: center;
+
+    & > * {
+      width: 100%;
+    }
+
+    @media (max-width: 475px) {
+      padding: 40px 24px;
+    }
   }
 
   &__logo {
@@ -23,14 +31,14 @@
   }
 
   &__title {
-    color: #363C56;
+    color: #363c56;
     font-size: 26px;
     font-weight: 600;
     margin: 0;
+    text-align: center;
   }
 
-  &__button {
-    width: 100%;
-    margin-top: 24px;
+  &__input {
+    margin: 24px 0;
   }
 }
