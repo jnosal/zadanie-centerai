@@ -1,5 +1,5 @@
 <template>
-  <div class="shortened-links-list">
+  <div :class="classModifiers">
     <shortened-link
       class="shortened-links-list__link"
       v-for="item in items"
