@@ -12,6 +12,7 @@
           class="shortened-link__result-image"
           src="@/assets/images/file-copy.svg"
         />
+        <div v-if="copied" class="shortened-link__copied">Copy!</div>
       </div>
     </div>
   </div>
