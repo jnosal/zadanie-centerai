@@ -4,8 +4,10 @@ from django.conf import settings
 from django.db import IntegrityError, transaction
 from django.http import Http404, HttpResponsePermanentRedirect, HttpResponseRedirect
 from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_http_methods
 from rest_framework import status
+from rest_framework.exceptions import ValidationError
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
@@ -18,8 +20,11 @@ logger = logging.getLogger(__name__)
 @method_decorator(transaction.non_atomic_requests, name="dispatch")
 class ShortenLinkApiView(GenericAPIView):
     serializer_class = serializers.ShortenRequestSerializer
+    signature_fail_attempts = 3
 
-    def save_url_and_get_signature(self, url):
+    def save_url_and_get_signature(self, url, attempt=1):
+        if attempt > self.signature_fail_attempts:
+            raise ValidationError({"signature": _("Cannot generate signature")})
         try:
             signature = helpers.get_random_identifier()
             models.ShortenedUrl.objects.create(url=url, signature=signature)
@@ -27,7 +32,7 @@ class ShortenLinkApiView(GenericAPIView):
             return signature
         except IntegrityError:
             logger.error("Signature already exists in database, generating another one")
-            return self.save_url_and_get_signature(url)
+            return self.save_url_and_get_signature(url, attempt=attempt + 1)
 
     def get_signature_link(self, signature):
         return reverse(

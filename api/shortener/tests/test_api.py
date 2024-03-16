@@ -1,4 +1,5 @@
 import pytest
+from django.db import IntegrityError
 from django.test import override_settings
 from django.urls import reverse
 from rest_framework import status
@@ -91,3 +92,23 @@ def test_retries_process_on_integrity_error(client, mocker):
     assert r.status_code == status.HTTP_200_OK
     assert ShortenedUrl.objects.count() == 2
     assert mocked_get_random_identifier.call_count == 2
+
+
+@pytest.mark.django_db(transaction=True)
+def test_raises_ValidationError_when_too_many_retries(client, mocker):
+    url = "https://www.google.com"
+
+    mocked_get_random_identifier = mocker.patch(
+        "shortener.api.helpers.get_random_identifier"
+    )
+    mocked_get_random_identifier.side_effect = [
+        IntegrityError,
+        IntegrityError,
+        IntegrityError,
+        IntegrityError,
+    ]
+
+    r = client.post(reverse("shortener:shorten"), data={"url": url})
+
+    assert r.status_code == status.HTTP_400_BAD_REQUEST
+    assert "signature" in r.data
